@@ -10,22 +10,23 @@ namespace NewCalculator
     {
         public static string ConvertDecimalToHex(double value)
         {
-            return "";
+            string result = Convert.ToString((int)value, 16);
+            return result.ToUpper();
         }
 
         public static double ConvertHexToDecimal(string value)
         {
-            return 0;
+            return Convert.ToInt32(value, 16);
         }
 
         public static string ConvertDecimalToBinary(double value)
         {
-            return "";
+            return Convert.ToString((int)value, 2);
         }
 
         public static double ConvertBinaryToDecimal(string value)
         {
-            return 0;
+            return Convert.ToInt32(value, 2);
         }
     }
 }
