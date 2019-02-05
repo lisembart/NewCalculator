@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewCalculator
 {
-    static class NumberSystem
+    static class NumberSystemConverter
     {
         public static string ConvertDecimalToHex(double value)
         {

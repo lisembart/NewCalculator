@@ -63,7 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Tests\TestCalculator.cs" />
-    <Compile Include="Tests\TestNumberSystem.cs" />
+    <Compile Include="Tests\TestNumberSystemConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -81,7 +81,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NumberSystem.cs" />
+    <Compile Include="NumberSystemConverter.cs" />
     <Compile Include="NumSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

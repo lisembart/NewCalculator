@@ -23,6 +23,10 @@ namespace NewCalculator
         public MainWindow()
         {
             InitializeComponent();
+
+            NumberSystemComboBox.ItemsSource = Enum.GetValues(typeof(NumSystem));
+            NumberSystemComboBox.SelectedItem = NumSystem.Decimal;
+
         }
     }
 }

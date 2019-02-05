@@ -8,13 +8,13 @@ using NUnit.Framework;
 namespace NewCalculator.Tests
 {
     [TestFixture]
-    class TestNumberSystem
+    class TestNumberSystemConverter
     {
         [Test]
         public void DecimalToHex()
         {
             double decimalValue = 29;
-            string results = NumberSystem.ConvertDecimalToHex(decimalValue);
+            string results = NumberSystemConverter.ConvertDecimalToHex(decimalValue);
             Assert.AreEqual("1D", results);
         }
 
@@ -22,7 +22,7 @@ namespace NewCalculator.Tests
         public void HexToDecimal()
         {
             string hexValue = "2FC";
-            double results = NumberSystem.ConvertHexToDecimal(hexValue);
+            double results = NumberSystemConverter.ConvertHexToDecimal(hexValue);
             Assert.AreEqual(764, results);
         }
 
@@ -30,7 +30,7 @@ namespace NewCalculator.Tests
         public void DecimalToBinary()
         {
             double decimalValue = 112;
-            string results = NumberSystem.ConvertDecimalToBinary(decimalValue);
+            string results = NumberSystemConverter.ConvertDecimalToBinary(decimalValue);
             Assert.AreEqual("1110000", results);
         }
 
@@ -38,7 +38,7 @@ namespace NewCalculator.Tests
         public void BinaryToDecimal()
         {
             string binaryValue = "1101101";
-            double results = NumberSystem.ConvertBinaryToDecimal(binaryValue);
+            double results = NumberSystemConverter.ConvertBinaryToDecimal(binaryValue);
             Assert.AreEqual(109, results);
         }
     }
