@@ -40,7 +40,10 @@ namespace NewCalculator
 
         public void SetOperation(string value, string operation)
         {
-            firstNumber = double.Parse(value);
+            if(value != "")
+            {
+                firstNumber = double.Parse(value);
+            }
             currentOperation = operation;
         }
 
@@ -51,21 +54,27 @@ namespace NewCalculator
 
         public double Calculate()
         {
+            double score = 0;
             switch (currentOperation)
             {
                 case "+":
-                    return firstNumber + secondNumber;
+                    score = firstNumber + secondNumber;
+                    break;
                 case "-":
-                    return firstNumber - secondNumber;
+                    score = firstNumber - secondNumber;
+                    break;
                 case "*":
-                    return firstNumber * secondNumber;
+                    score = firstNumber * secondNumber;
+                    break;
                 case "/":
-                    return firstNumber / secondNumber;
+                    score = firstNumber / secondNumber;
+                    break;
                 case "^":
-                    return Math.Pow(firstNumber, secondNumber);
+                    score = Math.Pow(firstNumber, secondNumber);
+                    break;
             }
-
-            return 0;
+            firstNumber = score;
+            return score;
         }
     }
 }

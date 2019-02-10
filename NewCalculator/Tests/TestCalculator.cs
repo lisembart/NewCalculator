@@ -108,8 +108,9 @@ namespace NewCalculator.Tests
             calculator.SetOperation(firstNumber.ToString(), "*");
             calculator.SetSecondNumber(12);
             double temp = calculator.Calculate();
+            calculator.SetOperation("", "+");
             double thirdNumber = 15;
-            calculator.SetOperation(thirdNumber.ToString(), "+");
+            calculator.SetSecondNumber(thirdNumber);
             double score = calculator.Calculate();
             Assert.AreEqual(6408, score);
         }
