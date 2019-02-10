@@ -12,6 +12,8 @@ namespace NewCalculator.Tests
     {
         Calculator calculator = new Calculator();
 
+        #region BasicOperationsTests
+
         [Test]
         public void TestAddition()
         {
@@ -59,5 +61,63 @@ namespace NewCalculator.Tests
             double score = calculator.Calculate();
             Assert.AreEqual(6.5, score);
         }
+
+        #endregion
+
+        #region SpecialMathOperations
+
+        [Test]
+        public void TestPow()
+        {
+            calculator.TotalReset();
+            double firstNumber = 25;
+            double secondNumber = 2;
+            calculator.SetOperation(firstNumber.ToString(), "^");
+            calculator.SetSecondNumber(2);
+            double score = calculator.Calculate();
+            Assert.AreEqual(625, score, 0.2);
+        }
+
+        [Test]
+        public void TestSqrt()
+        {
+            calculator.TotalReset();
+            double number = 625;
+            double score = calculator.SetSqrtOperation(number.ToString());
+            Assert.AreEqual(25, score);
+        }
+
+        [Test]
+        public void TestRound()
+        {
+            calculator.TotalReset();
+            double number = 4.4;
+            double score = calculator.SetRoundOperation(number.ToString());
+            Assert.AreEqual(4, score);
+        }
+        #endregion
+
+        #region ContinuingOperations
+        
+        [Test]
+        public void ContinuingAddition()
+        {
+            calculator.TotalReset();
+            double firstNumber = 35.6;
+            double secondNumber = 12;
+            calculator.SetOperation(firstNumber.ToString(), "*");
+            calculator.SetSecondNumber(12);
+            double temp = calculator.Calculate();
+            double thirdNumber = 15;
+            calculator.SetOperation(thirdNumber.ToString(), "+");
+            double score = calculator.Calculate();
+            Assert.AreEqual(6408, score);
+        }
+
+        #endregion
+
+        #region OtherTests
+
+        #endregion
     }
 }

@@ -23,6 +23,21 @@ namespace NewCalculator
             currentNumber = 0;
         }
 
+        public void SetNumberSystem(NumSystem numberSystem)
+        {
+            currentNumSystem = numberSystem;
+        }
+
+        public double SetSqrtOperation(string value)
+        {
+            return Math.Sqrt(double.Parse(value));
+        }
+
+        public double SetRoundOperation(string value)
+        {
+            return Math.Round(double.Parse(value),0);
+        }
+
         public void SetOperation(string value, string operation)
         {
             firstNumber = double.Parse(value);
@@ -46,6 +61,8 @@ namespace NewCalculator
                     return firstNumber * secondNumber;
                 case "/":
                     return firstNumber / secondNumber;
+                case "^":
+                    return Math.Pow(firstNumber, secondNumber);
             }
 
             return 0;
