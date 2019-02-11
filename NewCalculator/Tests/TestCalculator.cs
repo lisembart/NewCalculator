@@ -20,7 +20,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 5.3;
             double secondNumber = 9.3;
-            calculator.SetOperation(firstNumber.ToString(),"+");
+            calculator.SetOperation(firstNumber.ToString(), "+");
             calculator.SetSecondNumber(9.3);
             double score = calculator.Calculate();
             Assert.AreEqual(14.6, score, 0.2);
@@ -32,7 +32,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 34;
             double secondNumber = 12.3;
-            calculator.SetOperation(firstNumber.ToString(),"-");
+            calculator.SetOperation(firstNumber.ToString(), "-");
             calculator.SetSecondNumber(12.3);
             double score = calculator.Calculate();
             Assert.AreEqual(21.7, score);
@@ -44,7 +44,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 5.6;
             double secondNumber = 12;
-            calculator.SetOperation(firstNumber.ToString(),"*");
+            calculator.SetOperation(firstNumber.ToString(), "*");
             calculator.SetSecondNumber(12);
             double score = calculator.Calculate();
             Assert.AreEqual(67.2, score, 0.2);
@@ -56,7 +56,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 78;
             double secondNumber = 12;
-            calculator.SetOperation(firstNumber.ToString(),"/");
+            calculator.SetOperation(firstNumber.ToString(), "/");
             calculator.SetSecondNumber(12);
             double score = calculator.Calculate();
             Assert.AreEqual(6.5, score);
@@ -98,7 +98,7 @@ namespace NewCalculator.Tests
         #endregion
 
         #region ContinuingOperations
-        
+
         [Test]
         public void ContinuingAddition()
         {
@@ -112,10 +112,12 @@ namespace NewCalculator.Tests
             double thirdNumber = 15;
             calculator.SetSecondNumber(thirdNumber);
             double score = calculator.Calculate();
-            Assert.AreEqual(6408, score);
+            Assert.AreEqual(442, score, 0.5);
         }
 
         #endregion
+
+
 
         #region OtherTests
 
