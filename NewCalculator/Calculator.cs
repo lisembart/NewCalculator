@@ -31,14 +31,14 @@ namespace NewCalculator
         public double SetSqrtOperation(string value)
         {
             double score = Math.Sqrt(double.Parse(value));
-            AddToCalculationsHistory(score, "√");
+            AddToCalculationsHistory(value, score, "√");
             return score;
         }
 
         public double SetRoundOperation(string value)
         {
             double score = Math.Round(double.Parse(value),0);
-            AddToCalculationsHistory(score, "~");
+            AddToCalculationsHistory(value, score, "~");
             return score;
         }
 
@@ -62,9 +62,10 @@ namespace NewCalculator
             CalculationHistory.calculationHistoryList.Add(calculation);
         }
 
-        public void AddToCalculationsHistory(double score, string operation)
+        public void AddToCalculationsHistory(string value,double score, string operation)
         {
-            Calculation calculation = new Calculation(firstNumber, operation, score);
+            double number = double.Parse(value);
+            Calculation calculation = new Calculation(number, operation, score);
             CalculationHistory.calculationHistoryList.Add(calculation);
         }
 

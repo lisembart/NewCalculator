@@ -85,7 +85,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 1024;
             double score = calculator.SetSqrtOperation(firstNumber.ToString());
-            string operation = score.ToString();
+            string operation = calculationHistory.GetLastOperation();
             Assert.AreEqual("√ 1024 = 32", operation);
         }
 
@@ -95,8 +95,8 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             double firstNumber = 1025.2;
             double score = calculator.SetRoundOperation(firstNumber.ToString());
-            string operation = score.ToString();
-            Assert.AreEqual("1025.2 ~ = 1025",operation);
+            string operation = calculationHistory.GetLastOperation();
+            Assert.AreEqual("1025,2 ~ = 1025",operation);
         }
     }
 }
