@@ -30,12 +30,16 @@ namespace NewCalculator
 
         public double SetSqrtOperation(string value)
         {
-            return Math.Sqrt(double.Parse(value));
+            double score = Math.Sqrt(double.Parse(value));
+            AddToCalculationsHistory(score, "√");
+            return score;
         }
 
         public double SetRoundOperation(string value)
         {
-            return Math.Round(double.Parse(value),0);
+            double score = Math.Round(double.Parse(value),0);
+            AddToCalculationsHistory(score, "~");
+            return score;
         }
 
         public void SetOperation(string value, string operation)
@@ -50,6 +54,18 @@ namespace NewCalculator
         public void SetSecondNumber(double value)
         {
             secondNumber = value;
+        }
+
+        public void AddToCalculationsHistory(double score)
+        {
+            Calculation calculation = new Calculation(firstNumber, secondNumber, currentOperation, score);
+            CalculationHistory.calculationHistoryList.Add(calculation);
+        }
+
+        public void AddToCalculationsHistory(double score, string operation)
+        {
+            Calculation calculation = new Calculation(firstNumber, operation, score);
+            CalculationHistory.calculationHistoryList.Add(calculation);
         }
 
         public double Calculate()
@@ -73,6 +89,7 @@ namespace NewCalculator
                     score = Math.Pow(firstNumber, secondNumber);
                     break;
             }
+            AddToCalculationsHistory(score);
             firstNumber = score;
             return score;
         }
