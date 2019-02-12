@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewCalculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="805.575" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="629.693" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="347*"/>
@@ -58,7 +58,13 @@
                 <TextBlock Name="MainTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="90" Width="300"><Run Text="TextBlock"/></TextBlock>
                 <TextBlock Name="SecondTextBlock" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="300" Height="45"/>
                 <ComboBox Name="NumberSystemComboBox" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="300" Height="28" SelectionChanged="NumberSystemComboBox_SelectionChanged"/>
-                <ListBox Name="OperationsHistoryListBox" HorizontalAlignment="Left" Height="395" Margin="454,10,-460,0" VerticalAlignment="Top" Width="333"/>
+                <ListBox Name="OperationsHistoryListBox" HorizontalAlignment="Left" Height="395" Margin="454,10,-270,0" VerticalAlignment="Top" Width="143">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Delete" Click="RemoveOperation_Click"></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox> 
             </Grid>
         </GroupBox>
     </Grid>

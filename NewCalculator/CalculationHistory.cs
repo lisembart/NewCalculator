@@ -15,6 +15,11 @@ namespace NewCalculator
             return calculationHistoryList[calculationHistoryList.Count - 1].GetCalculation();
         }
 
+        public void RemoveOperationFromHistory(int index)
+        {
+            calculationHistoryList.RemoveAt(index);
+        }
+
         public string[] GetAllOperations()
         {
             string[] operations = new string[calculationHistoryList.Count];

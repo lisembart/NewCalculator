@@ -116,5 +116,12 @@ namespace NewCalculator
             MainTextBlock.Text = calculator.Calculate().ToString();
             UpdateOperationsHistory();
         }
+
+        private void RemoveOperation_Click(object sender, RoutedEventArgs e)
+        {
+            int selectedOperation = OperationsHistoryListBox.SelectedIndex;
+            calculationHistory.RemoveOperationFromHistory(selectedOperation);
+            UpdateOperationsHistory();
+        }
     }
 }
