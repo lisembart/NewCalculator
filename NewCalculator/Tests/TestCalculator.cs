@@ -273,8 +273,7 @@ namespace NewCalculator.Tests
             calculator.TotalReset();
             calculator.SetNumberSystem(NumSystem.Hex);
             string firstNumber = "10";
-            double score = calculator.SetSqrtOperation(firstNumber);
-            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            string results = calculator.SetSqrtOperationHex(firstNumber);
             Assert.AreEqual("4", results);
         }
 

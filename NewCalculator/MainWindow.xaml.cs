@@ -112,9 +112,21 @@ namespace NewCalculator
 
         private void ScoreButton_Click(object sender, RoutedEventArgs e)
         {
-            calculator.SetSecondNumber(double.Parse(currentNumber));
+            if((NumSystem)NumberSystemComboBox.SelectedValue != NumSystem.Hex)
+            {
+                calculator.SetSecondNumber(double.Parse(currentNumber));
+            } else
+            {
+                calculator.SetSecondNumber(currentNumber);
+            }
             CleanCurrentNumber();
-            MainTextBlock.Text = calculator.Calculate().ToString();
+            if((NumSystem)NumberSystemComboBox.SelectedValue != NumSystem.Hex)
+            {
+                MainTextBlock.Text = calculator.Calculate().ToString();
+            } else
+            {
+                MainTextBlock.Text = NumberSystemConverter.ConvertDecimalToHex(calculator.Calculate());
+            }
             UpdateOperationsHistory();
         }
 

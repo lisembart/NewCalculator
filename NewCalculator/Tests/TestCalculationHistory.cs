@@ -13,6 +13,8 @@ namespace NewCalculator.Tests
         Calculator calculator = new Calculator();
         CalculationHistory calculationHistory = new CalculationHistory();
 
+        #region OperationsDecimal
+
         [Test]
         public void TestAdditionOperation()
         {
@@ -98,5 +100,11 @@ namespace NewCalculator.Tests
             string operation = calculationHistory.GetLastOperation();
             Assert.AreEqual("1025,2 ~ = 1025",operation);
         }
+
+        #endregion
+
+        #region OperationsBinary
+
+        #endregion
     }
 }

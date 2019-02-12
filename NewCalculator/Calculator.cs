@@ -37,14 +37,28 @@ namespace NewCalculator
             if(currentNumSystem == NumSystem.Binary)
             {
                 value = NumberSystemConverter.ConvertBinaryToDecimal(value).ToString();
-            } 
+            } else if(currentNumSystem == NumSystem.Hex)
+            {
+                value = NumberSystemConverter.ConvertHexToDecimal(value).ToString();
+            }
             double score = Math.Sqrt(double.Parse(value));
             if(currentNumSystem == NumSystem.Binary)
             {
                 score = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(score));
+            } 
+            if(currentNumSystem != NumSystem.Hex)
+            {
+                AddToCalculationsHistory(value, score, "√");
             }
-            AddToCalculationsHistory(value, score, "√");
             return score;
+        }
+
+        public string SetSqrtOperationHex(string value)
+        {
+            double decimalScore = SetSqrtOperation(value);
+            string score = NumberSystemConverter.ConvertDecimalToHex(decimalScore);
+            AddToCalculationsHistory(score, true);
+            return score;           
         }
 
         public double SetRoundOperation(string value)
@@ -90,6 +104,18 @@ namespace NewCalculator
             CalculationHistory.calculationHistoryList.Add(calculation);
         }
 
+        public void AddToCalculationsHistory(string score)
+        {
+            Calculation calculation = new Calculation(firstHexNumber, secondHexNumber, currentOperation, score);
+            CalculationHistory.calculationHistoryList.Add(calculation);
+        }
+
+        public void AddToCalculationsHistory(string score, bool hexSpecial = true)
+        {
+            Calculation calculation = new Calculation(firstHexNumber, currentOperation, score);
+            CalculationHistory.calculationHistoryList.Add(calculation);
+        }
+
         public double Calculate()
         {
             if(currentNumSystem == NumSystem.Binary)
@@ -129,6 +155,9 @@ namespace NewCalculator
             if(currentNumSystem == NumSystem.Binary || currentNumSystem == NumSystem.Decimal)
             {
                 AddToCalculationsHistory(score);
+            } else 
+            {
+                AddToCalculationsHistory(NumberSystemConverter.ConvertDecimalToHex(score));
             }
             firstNumber = score;
             return score;
