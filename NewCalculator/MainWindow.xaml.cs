@@ -21,15 +21,33 @@ namespace NewCalculator
     public partial class MainWindow : Window
     {
         Calculator calculator;
+        CalculationHistory calculationHistory;
         string currentNumber;
 
         public MainWindow()
         {
             InitializeComponent();
             calculator = new Calculator();
+            calculationHistory = new CalculationHistory();
 
             NumberSystemComboBox.ItemsSource = Enum.GetValues(typeof(NumSystem));
             NumberSystemComboBox.SelectedItem = NumSystem.Decimal;
+
+            UpdateOperationsHistory();
+        }
+
+        private void UpdateOperationsHistory()
+        {
+            OperationsHistoryListBox.Items.Clear();
+            string[] operations = calculationHistory.GetAllOperations();
+            for(int i = 0; i < operations.Length; i++)
+            {
+                string operation = operations[i];
+                ListBoxItem item = new ListBoxItem();
+                item.Content = operation;
+                item.Name = "op";
+                OperationsHistoryListBox.Items.Add(item);
+            }
         }
 
         private void NumberSystemComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,10 +90,12 @@ namespace NewCalculator
             if (btn.Content.ToString() == "√")
             {
                 MainTextBlock.Text = calculator.SetSqrtOperation(currentNumber).ToString();
+                UpdateOperationsHistory();
             }
             else if (btn.Content.ToString() == "~")
             {
                 MainTextBlock.Text = calculator.SetRoundOperation(currentNumber).ToString();
+                UpdateOperationsHistory();
             } else
             {
                 calculator.SetOperation(currentNumber, btn.Content.ToString());
@@ -94,6 +114,7 @@ namespace NewCalculator
             calculator.SetSecondNumber(double.Parse(currentNumber));
             CleanCurrentNumber();
             MainTextBlock.Text = calculator.Calculate().ToString();
+            UpdateOperationsHistory();
         }
     }
 }

@@ -14,5 +14,15 @@ namespace NewCalculator
         {
             return calculationHistoryList[calculationHistoryList.Count - 1].GetCalculation();
         }
+
+        public string[] GetAllOperations()
+        {
+            string[] operations = new string[calculationHistoryList.Count];
+            for(int i = 0; i < calculationHistoryList.Count; i++)
+            {
+                operations[i] = calculationHistoryList[i].GetCalculation();
+            }
+            return operations;
+        }
     }
 }
