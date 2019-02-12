@@ -18,6 +18,7 @@ namespace NewCalculator.Tests
         public void TestAddition()
         {
             calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Decimal);
             double firstNumber = 5.3;
             double secondNumber = 9.3;
             calculator.SetOperation(firstNumber.ToString(), "+");
@@ -103,6 +104,7 @@ namespace NewCalculator.Tests
         public void ContinuingAddition()
         {
             calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Decimal);
             double firstNumber = 35.6;
             double secondNumber = 12;
             calculator.SetOperation(firstNumber.ToString(), "*");
@@ -119,7 +121,77 @@ namespace NewCalculator.Tests
 
 
 
-        #region OtherTests
+        #region BinaryOperations
+
+        [Test]
+        public void BinaryAddition()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Binary);
+            double firstNumber = 11010;
+            double secondNumber = 110111;
+            calculator.SetOperation(firstNumber.ToString(), "+");
+            calculator.SetSecondNumber(secondNumber);
+            double results = calculator.Calculate();
+            Assert.AreEqual(1010001, results);
+        }
+
+        [Test]
+        public void BinarySubstraction()
+        {
+            calculator.TotalReset();
+            double firstNumber = 111010;
+            double secondNumber = 110111;
+            calculator.SetOperation(firstNumber.ToString(), "-");
+            calculator.SetSecondNumber(secondNumber);
+            double results = calculator.Calculate();
+            Assert.AreEqual(11, results);
+        }
+
+        [Test]
+        public void BinaryMultiplication()
+        {
+            calculator.TotalReset();
+            double firstNumber = 1110;
+            double secondNumber = 110111;
+            calculator.SetOperation(firstNumber.ToString(), "*");
+            calculator.SetSecondNumber(secondNumber);
+            double results = calculator.Calculate();
+            Assert.AreEqual(1100000010, results);
+        }
+
+        [Test]
+        public void BinaryDivision()
+        {
+            calculator.TotalReset();
+            double firstNumber = 11001010;
+            double secondNumber = 1101;
+            calculator.SetOperation(firstNumber.ToString(), "/");
+            calculator.SetSecondNumber(secondNumber);
+            double results = calculator.Calculate();
+            Assert.AreEqual(1111, results);
+        }
+
+        [Test]
+        public void BinaryPow()
+        {
+            calculator.TotalReset();
+            double firstNumber = 10;
+            double secondNumber = 101;
+            calculator.SetOperation(firstNumber.ToString(), "^");
+            calculator.SetSecondNumber(secondNumber);
+            double results = calculator.Calculate();
+            Assert.AreEqual(100000, results);
+        }
+
+        [Test]
+        public void BinarySqrt()
+        {
+            calculator.TotalReset();
+            double firstNumber = 10000000000;
+            double results = calculator.SetSqrtOperation(firstNumber.ToString());
+            Assert.AreEqual(100000, results);
+        }
 
         #endregion
     }

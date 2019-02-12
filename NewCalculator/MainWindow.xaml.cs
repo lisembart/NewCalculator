@@ -23,6 +23,7 @@ namespace NewCalculator
         Calculator calculator;
         CalculationHistory calculationHistory;
         string currentNumber;
+       
 
         public MainWindow()
         {

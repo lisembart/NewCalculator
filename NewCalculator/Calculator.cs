@@ -30,7 +30,16 @@ namespace NewCalculator
 
         public double SetSqrtOperation(string value)
         {
+            
+            if(currentNumSystem == NumSystem.Binary)
+            {
+                value = NumberSystemConverter.ConvertBinaryToDecimal(value).ToString();
+            } 
             double score = Math.Sqrt(double.Parse(value));
+            if(currentNumSystem == NumSystem.Binary)
+            {
+                score = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(score));
+            }
             AddToCalculationsHistory(value, score, "√");
             return score;
         }
@@ -71,6 +80,11 @@ namespace NewCalculator
 
         public double Calculate()
         {
+            if(currentNumSystem == NumSystem.Binary)
+            {
+                firstNumber = NumberSystemConverter.ConvertBinaryToDecimal(firstNumber);
+                secondNumber = NumberSystemConverter.ConvertBinaryToDecimal(secondNumber);
+            }
             double score = 0;
             switch (currentOperation)
             {
@@ -89,6 +103,12 @@ namespace NewCalculator
                 case "^":
                     score = Math.Pow(firstNumber, secondNumber);
                     break;
+            }
+            if(currentNumSystem == NumSystem.Binary)
+            {
+                firstNumber = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(firstNumber));
+                secondNumber = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(secondNumber));
+                score = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(score));
             }
             AddToCalculationsHistory(score);
             firstNumber = score;

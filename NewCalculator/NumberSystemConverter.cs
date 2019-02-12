@@ -28,5 +28,11 @@ namespace NewCalculator
         {
             return Convert.ToInt32(value, 2);
         }
+
+        public static double ConvertBinaryToDecimal(double value)
+        {
+            string number = value.ToString();
+            return Convert.ToInt32(number, 2);
+        }
     }
 }
