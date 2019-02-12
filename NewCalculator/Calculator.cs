@@ -12,6 +12,9 @@ namespace NewCalculator
         double secondNumber = 0;
         double currentNumber = 0;
 
+        string firstHexNumber = string.Empty;
+        string secondHexNumber = string.Empty;
+
         string currentOperation;
 
         NumSystem currentNumSystem;
@@ -53,9 +56,13 @@ namespace NewCalculator
 
         public void SetOperation(string value, string operation)
         {
-            if(value != "")
+            if(value != "" && currentNumSystem != NumSystem.Hex)
             {
                 firstNumber = double.Parse(value);
+            } 
+            if(currentNumSystem == NumSystem.Hex)
+            {
+                firstHexNumber = value;
             }
             currentOperation = operation;
         }
@@ -63,6 +70,11 @@ namespace NewCalculator
         public void SetSecondNumber(double value)
         {
             secondNumber = value;
+        }
+
+        public void SetSecondNumber(string value)
+        {
+            secondHexNumber = value;
         }
 
         public void AddToCalculationsHistory(double score)
@@ -84,6 +96,10 @@ namespace NewCalculator
             {
                 firstNumber = NumberSystemConverter.ConvertBinaryToDecimal(firstNumber);
                 secondNumber = NumberSystemConverter.ConvertBinaryToDecimal(secondNumber);
+            } else if(currentNumSystem == NumSystem.Hex)
+            {
+                firstNumber = NumberSystemConverter.ConvertHexToDecimal(firstHexNumber);
+                secondNumber = NumberSystemConverter.ConvertHexToDecimal(secondHexNumber);
             }
             double score = 0;
             switch (currentOperation)
@@ -110,7 +126,10 @@ namespace NewCalculator
                 secondNumber = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(secondNumber));
                 score = double.Parse(NumberSystemConverter.ConvertDecimalToBinary(score));
             }
-            AddToCalculationsHistory(score);
+            if(currentNumSystem == NumSystem.Binary || currentNumSystem == NumSystem.Decimal)
+            {
+                AddToCalculationsHistory(score);
+            }
             firstNumber = score;
             return score;
         }

@@ -32,12 +32,12 @@
         </GroupBox>
         <GroupBox Name="HexNumbersGroup" Grid.ColumnSpan="2">
             <Grid>
-                <Button Content="A" HorizontalAlignment="Left" Margin="185,303,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
-                <Button Content="B" HorizontalAlignment="Left" Margin="240,303,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
-                <Button Content="D" HorizontalAlignment="Left" Margin="240,248,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
-                <Button Content="C" HorizontalAlignment="Left" Margin="185,248,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
-                <Button Content="F" HorizontalAlignment="Left" Margin="185,193,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
-                <Button Content="E" HorizontalAlignment="Left" Margin="240,193,0,0" VerticalAlignment="Top" Width="50" Height="50"/>
+                <Button Content="A" HorizontalAlignment="Left" Margin="185,303,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
+                <Button Content="B" HorizontalAlignment="Left" Margin="240,303,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
+                <Button Content="D" HorizontalAlignment="Left" Margin="240,248,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
+                <Button Content="C" HorizontalAlignment="Left" Margin="185,248,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
+                <Button Content="F" HorizontalAlignment="Left" Margin="185,193,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
+                <Button Content="E" HorizontalAlignment="Left" Margin="240,193,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="NumButtonClicked"/>
             </Grid>
         </GroupBox>
         <GroupBox Name="ActionsGroup" Grid.ColumnSpan="2">

@@ -194,5 +194,90 @@ namespace NewCalculator.Tests
         }
 
         #endregion
+
+        #region HexOperations
+
+        [Test]
+        public void HexAddition()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "5CA";
+            string secondNumber = "2FC";
+            calculator.SetOperation(firstNumber, "+");
+            calculator.SetSecondNumber(secondNumber);
+            double score = calculator.Calculate();
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("8C6", results);
+        }
+
+        [Test]
+        public void HexSubstraction()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "9BD";
+            string secondNumber = "DF";
+            calculator.SetOperation(firstNumber, "-");
+            calculator.SetSecondNumber(secondNumber);
+            double score = calculator.Calculate();
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("8DE", results);
+        }
+
+        [Test]
+        public void HexMultiplication()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "8B";
+            string secondNumber = "BDF";
+            calculator.SetOperation(firstNumber, "*");
+            calculator.SetSecondNumber(secondNumber);
+            double score = calculator.Calculate();
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("67215", results);
+        }
+
+        [Test]
+        public void HexDivision()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "9658BDA";
+            string secondNumber = "DFA";
+            calculator.SetOperation(firstNumber, "/");
+            calculator.SetSecondNumber(secondNumber);
+            double score = calculator.Calculate();
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("AC1C", results);
+        }
+
+        [Test]
+        public void HexPow()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "2";
+            string secondNumber = "D";
+            calculator.SetOperation(firstNumber, "^");
+            calculator.SetSecondNumber(secondNumber);
+            double score = calculator.Calculate();
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("2000", results);
+        }
+
+        [Test]
+        public void HexSqrt()
+        {
+            calculator.TotalReset();
+            calculator.SetNumberSystem(NumSystem.Hex);
+            string firstNumber = "10";
+            double score = calculator.SetSqrtOperation(firstNumber);
+            string results = NumberSystemConverter.ConvertDecimalToHex(score);
+            Assert.AreEqual("4", results);
+        }
+
+        #endregion
     }
 }
