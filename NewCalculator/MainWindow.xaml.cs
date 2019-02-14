@@ -91,11 +91,13 @@ namespace NewCalculator
             if (btn.Content.ToString() == "√")
             {
                 MainTextBlock.Text = calculator.SetSqrtOperation(currentNumber).ToString();
+                currentNumber = MainTextBlock.Text;
                 UpdateOperationsHistory();
             }
             else if (btn.Content.ToString() == "~")
             {
                 MainTextBlock.Text = calculator.SetRoundOperation(currentNumber).ToString();
+                currentNumber = MainTextBlock.Text;
                 UpdateOperationsHistory();
             } else
             {
@@ -128,6 +130,7 @@ namespace NewCalculator
             {
                 MainTextBlock.Text = NumberSystemConverter.ConvertDecimalToHex(calculator.Calculate());
             }
+            currentNumber = MainTextBlock.Text;
             UpdateOperationsHistory();
         }
 
