@@ -99,9 +99,9 @@ namespace NewCalculator
                 UpdateOperationsHistory();
             } else
             {
-                calculator.SetOperation(currentNumber, btn.Content.ToString());
+                calculator.SetOperation(currentNumber, btn.Content.ToString());               
                 CleanCurrentNumber();
-            }           
+            }
         }
 
         private void CleanCurrentNumber()
@@ -109,6 +109,7 @@ namespace NewCalculator
             currentNumber = string.Empty;
             MainTextBlock.Text = currentNumber;
         }
+
 
         private void ScoreButton_Click(object sender, RoutedEventArgs e)
         {
@@ -135,6 +136,17 @@ namespace NewCalculator
             int selectedOperation = OperationsHistoryListBox.SelectedIndex;
             calculationHistory.RemoveOperationFromHistory(selectedOperation);
             UpdateOperationsHistory();
+        }
+
+        private void C_ButtonClicked(object sender, RoutedEventArgs e)
+        {
+            calculator.TotalReset();
+            CleanCurrentNumber();
+        }
+
+        private void CE_ButtonClciked(object sender, RoutedEventArgs e)
+        {
+            CleanCurrentNumber();
         }
     }
 }

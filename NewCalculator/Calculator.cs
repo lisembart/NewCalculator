@@ -24,6 +24,7 @@ namespace NewCalculator
             firstNumber = 0;
             secondNumber = 0;
             currentNumber = 0;
+            currentOperation = "";
         }
 
         public void SetNumberSystem(NumSystem numberSystem)

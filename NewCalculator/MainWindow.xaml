@@ -51,12 +51,14 @@
                 <ListBox HorizontalAlignment="Left" Height="395" Margin="454,10,0,0" VerticalAlignment="Top" Width="120"/>
                 <Button Content="=" HorizontalAlignment="Left" Margin="328,360,0,0" VerticalAlignment="Top" Width="105" Height="50" Click="ScoreButton_Click" />
                 <Button Content="~" HorizontalAlignment="Left" Margin="383,140,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="OperationButtonClciked"/>
+                <Button Content="CE" HorizontalAlignment="Left" Margin="328,10,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="CE_ButtonClciked"/>
+                <Button Content="C" HorizontalAlignment="Left" Margin="383,10,0,0" VerticalAlignment="Top" Width="50" Height="50" Click="C_ButtonClicked"/>
             </Grid>
         </GroupBox>
         <GroupBox Name="TextBlocksAndOther" BorderThickness="0" Margin="0,0,10,0">
             <Grid HorizontalAlignment="Left" Width="327" Margin="0,0,-2,0">
-                <TextBlock Name="MainTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="90" Width="300"><Run Text="TextBlock"/></TextBlock>
-                <TextBlock Name="SecondTextBlock" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="300" Height="45"/>
+                <TextBlock Name="MainTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="90" Width="300"><Run Text=""/></TextBlock>
+                <TextBlock Name="SecondTextBlock" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" Height="45"/>
                 <ComboBox Name="NumberSystemComboBox" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" Width="300" Height="28" SelectionChanged="NumberSystemComboBox_SelectionChanged"/>
                 <ListBox Name="OperationsHistoryListBox" HorizontalAlignment="Left" Height="395" Margin="454,10,-270,0" VerticalAlignment="Top" Width="143">
                     <ListBox.ContextMenu>
@@ -64,7 +66,7 @@
                             <MenuItem Header="Delete" Click="RemoveOperation_Click"></MenuItem>
                         </ContextMenu>
                     </ListBox.ContextMenu>
-                </ListBox> 
+                </ListBox>
             </Grid>
         </GroupBox>
     </Grid>
